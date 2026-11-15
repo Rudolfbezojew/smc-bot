@@ -1,0 +1,27 @@
+name: SMC Bot
+on:
+  schedule:
+    - cron: '1,16,31,46 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: smc-bot
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bot laufen lassen
+        run: python3 smc_bot.py
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Zustand speichern
+        run: |
+          git config user.name "smc-bot"
+          git config user.email "smc-bot@users.noreply.github.com"
+          git add -A state.json journal.csv 2>/dev/null || git add state.json
+          git diff --cached --quiet || git commit -m "Bot-Lauf"
+          git push
