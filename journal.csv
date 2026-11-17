@@ -1,3 +1,4 @@
 strat,sym,side,wende,entry_time,exit_time,entry,sl,reason,r
 v11,ETHUSDT,SHORT,0,16.11. 01:45,16.11. 09:30,1809.24,1843.8186,Zeitstopp - Rest schliessen,0.022
 v11,SOLUSDT,SHORT,0,16.11. 16:15,17.11. 00:00,70.29,72.9822,Zeitstopp - Rest schliessen,-0.549
+v11,BTCUSDT,SHORT,0,17.11. 01:15,17.11. 09:00,64680.89,65559.4196,Zeitstopp - Rest schliessen,-0.119
